@@ -44,6 +44,7 @@ class Twit
     " " + pet.link
   end
 
+
   def client
     Twitter::REST::Client.new do |config|
       begin
@@ -59,9 +60,15 @@ class Twit
     end
   end
 
+
   def tweet
-    uri   = URI.parse(pet.pic)
-    media = uri.open
-    client.update_with_media(message, media)
+    unless pet.pic.nil?
+      uri   = URI.parse(pet.pic)
+      media = uri.open
+      client.update_with_media(message, media)
+    else
+      client.update(message)
+    end
   end
+
 end
