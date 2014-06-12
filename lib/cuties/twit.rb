@@ -14,27 +14,13 @@ class Twit
   end
 
   def greeting
-    Greeting.new.random
+    Greeting.random
   end
 
   def message
     # Goal: this method should just be:
-    # "#{greeting} #{pet}. A #{pet.gender} #{pet.animal} #{pet.link}"
+    # "#{greeting} #{pet}. A #{pet.sex} #{pet.animal} #{pet.link}"
     PP.pp(pet)
-
-    if pet.sex == 'M'
-      gender = "male"
-    elsif pet.sex == 'F'
-      gender = "female"
-    else
-      gender = ''
-    end
-
-    if pet.breed.length == 1
-      breed = pet.breed[0]
-    else
-      breed = pet.breed.join("/") + " mix"
-    end
 
     # if it's a "Small and Fuzzy" just list the breed,
     # if it's a rabbit list it as an X rabbit
