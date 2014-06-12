@@ -36,7 +36,13 @@ class AdoptAPet
 
 
   def self.get_photo(pet)
-    pet['media']['photos']['photo'][2]['$t'] unless pet['media'].nil?
+    # Assume that if there isn't a 3rd photo, there is a first one
+    # There's some more refactoring to be done here.
+    
+    unless pet['media']['photos']['photo'].nil?
+      photo = pet['media']['photos']['photo'][2] || pet['media']['photos']['photo'][0]
+      photo['$t']
+    end
   end
 
 
@@ -51,7 +57,7 @@ class AdoptAPet
     uri.query = URI.encode_www_form(PARAMS)
     json = JSON.parse(Net::HTTP.get_response(uri).body)
 
-    # PP.pp(json)  # Pretty-prints the response in the Terminal
+    PP.pp(json)  # Pretty-prints the response in the Terminal
 
     pet_json  = json['petfinder']['pet']
     
