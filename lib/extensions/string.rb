@@ -3,7 +3,7 @@ require 'nokogiri'
 class String
   
   def my_titleize
-    split.map(&:capitalize).join
+    split.map(&:capitalize).join(' ')
   end
 
 	def strip_html

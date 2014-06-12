@@ -6,14 +6,13 @@ require 'pp'
 require 'dotenv'
 Dotenv.load
 
-class AdoptAPet
+module AdoptAPet
   URL = 'http://api.petfinder.com/pet.getRandom'
 
   PARAMS = {
     format:    'json',
     key:        ENV.fetch('petfinder_key'),
     shelterid: 'MA38', # MSPCA in Jamaica Plain
-    # id: 29421606,
     output:    'full'
   }
 
