@@ -1,43 +1,30 @@
 class Pet
-  attr_reader :attributes
-
-  def id
-    attributes['id']
-  end
-
-  def link
-    attributes['link']
-  end
-
-  def name
-    attributes['name']
-  end
-
-  def sex
-    attributes['sex']
-  end
-
-  def breed
-    attributes['breed']
-  end
-
-  def type
-    attributes['type']
-  end
-
-  #def desc
-  #  attributes['desc'].strip_html
-  #end
-
-  def pic
-    attributes['pic']
-  end
+  
+  attr_reader :id,
+              :link,
+              :name,
+              :sex,
+              :breed,
+              :type,
+              :desc,
+              :pic
 
   def initialize(attributes)
-    @attributes =  attributes
+    @id    = attributes[:id]
+    @link  = attributes[:link]
+    @name  = attributes[:name]
+    @sex   = attributes[:sex]
+    @breed = attributes[:breed]
+    @type  = attributes[:type]
+    @desc  = attributes[:desc]
+    @pic   = attributes[:pic]
+  end
+
+  def to_s
+    name
   end
 
   def error?
-    attributes['code']
+    # attributes['code']
   end
 end
