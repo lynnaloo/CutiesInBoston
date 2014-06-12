@@ -18,30 +18,8 @@ class Twit
   end
 
   def message
-    # Goal: this method should just be:
-    # "#{greeting} #{pet}. A #{pet.sex} #{pet.animal} #{pet.link}"
-    PP.pp(pet)
-
-    # if it's a "Small and Fuzzy" just list the breed,
-    # if it's a rabbit list it as an X rabbit
-    # if it's a cat of dog just list the breed and not 'cat' or 'dog'
-    # TODO deal with multi-breed dogs
-
-    if pet.type == "Small & Furry" or pet.type == "Scales, Fins & Others"
-      animal = breed
-    elsif pet.type == "Rabbit"
-      animal = breed + " " + "Rabbit"
-    elsif pet.type == "Pig"
-      animal = breed + " " + "Pig"
-    else
-      animal = breed
-    end
-
-    greeting +
-    " " + pet.name.capitalize + ". " +
-    "A " + gender +
-    " " + animal +
-    " " + pet.link
+    # PP.pp(pet)
+    "#{greeting} #{pet.message}"
   end
 
 

@@ -20,8 +20,8 @@ module Greeting
       "I'm",
       "Hello, I'm",
       "Hey, I'm",
-      "HI! I'm",
-      "HEY! I am"
+      "Hi! I'm",
+      "Hey! I am"
     ]
   end
 end
