@@ -16,10 +16,31 @@ describe Pet, 'Pet' do
     })
   end
 
-  subject { @pet }
+  describe "#breed_or_animal" do
 
-  it "#breed_or_animal" do
-    @pet.breed_or_animal.must_equal 'breed'
+    describe "when type is a Small & Furry" do
+      let(:pet) { Pet.new(type: 'Small & Furry', breed: 'breed') }
+      
+      it "returns the breed" do
+        pet.breed_or_animal.must_equal 'breed'
+      end
+    end
+
+    describe "when type is a Pig" do
+      let(:pet) { Pet.new(type: 'Pig', breed: 'breed') }
+      
+      it "returns the breed + 'pig'" do
+        pet.breed_or_animal.must_equal 'breed pig'
+      end
+    end
+
+    describe "when type is a Rabbit" do
+      let(:pet) { Pet.new(type: 'Rabbit', breed: 'breed') }
+      
+      it "returns the breed + 'rabbit'" do
+        pet.breed_or_animal.must_equal 'breed rabbit'
+      end
+    end
   end
 
 end
