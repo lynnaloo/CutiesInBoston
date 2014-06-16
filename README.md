@@ -76,10 +76,13 @@ The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 
 CutiesInDenver uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
 
-cd #{current_path}; git fetch origin; git reset --hard #{branch}
-# add the following to your crontab (using crontab -e)
-# tweets at 8:00am and 4:00pm every day
-00 08,16 * * * cd /path/to/cuties && /usr/local/bin/rake tweet
+    cd #{current_path}; git fetch origin; git reset --hard #{branch}
+
+If you already have a server and have pulled the bot from github add the following to your crontab (using crontab -e)
+
+This tweets at 8:00am and 4:00pm every day.
+
+    00 08,16 * * * cd /path/to/cuties && /usr/local/bin/rake tweet
 
 -----------------------
 
