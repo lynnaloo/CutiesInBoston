@@ -48,7 +48,9 @@ Then sign up for the API keys: https://www.petfinder.com/developers/api-key
 
 ### Set up your environment variables
 
-Modify the .env file to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task. Do not commit your modified .env file to anywhere public.
+Modify the .env file to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
+
+Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you from accidentially exposing your keys. Do not remove this line.
 
     consumer_key=XXXXXXXXXXXXXXXXXXXXXX
     consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -65,13 +67,13 @@ The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 
 ### How to Tweet Periodically
 
-Install the application on a server of computer that will be powered on continuously.
+Install the application on a server or a computer that will be powered on continuously.
 
     cd <install_path>
     git clone git@github.com:codeforboston/CutiesInBoston.git
     cd CutiesInBoston
     bundle install
-    crontab -e
+    crontab -e  # opens an editor to add a line to your scheduled cron jobs
 
 Add the following to your crontab
 
