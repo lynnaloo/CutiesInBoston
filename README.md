@@ -79,7 +79,8 @@ Add the following to your crontab
 
     00 08,16 * * * cd <install_path>/CutiesInBoston && /usr/local/bin/rake tweet
 
-This tweets at 8:00am and 4:00pm every day.
+This tweets at 8:00am and 4:00pm (0800 hours and 1600 hours) every day.
+You can learn how to configure the crontab to your preference [here](https://help.ubuntu.com/community/CronHowto).
 
 #### Alternatives
 
