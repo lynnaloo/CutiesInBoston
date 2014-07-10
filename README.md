@@ -1,7 +1,7 @@
-CutiesInBoston
+CutiesInNorfolk
 ==============
 
-Post a random adoptable pet from the Boston MSPCA to a twitter feed.
+Post a random adoptable pet in Norfolk from the Norfolk SPCA to a twitter feed.
 
 Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
 
