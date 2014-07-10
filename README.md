@@ -1,21 +1,18 @@
 CutiesInNorfolk
 ==============
 
-Post a random adoptable pet in Norfolk from the Norfolk SPCA to a twitter feed.
-
 Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
 
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
 ## About
-
-A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Boston MSPCA](http://www.mspca.org/adoption/boston/).
+A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Norfolk SPCA](http://www.norfolkspca.com/) and [Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
 
 It should be easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
 
 **Links to API and Bot**
 
-* [Twitter bot](http://twitter.com/CutiesInBoston)
+* [Twitter bot](http://twitter.com/CutiesInNorfolk)
 
 * [API Docs`](https://www.petfinder.com/developers/api-docs)
 
@@ -70,8 +67,8 @@ The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 Install the application on a server or a computer that will be powered on continuously.
 
     cd <install_path>
-    git clone git@github.com:codeforboston/CutiesInBoston.git
-    cd CutiesInBoston
+    git clone git@github.com:codeforboston/CutiesInNorfolk.git
+    cd CutiesInNorfolk
     bundle install
     crontab -e  # opens an editor to add a line to your scheduled cron jobs
 
