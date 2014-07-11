@@ -1,23 +1,27 @@
-[![Build Status](https://travis-ci.org/stanzheng/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
+<<<<<<< HEAD
+ Status](https://travis-ci.org/stanzheng/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
 
-Cuties In Norfolk
+Cuties In Hampton Roads
 ==============
 
 Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
 
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
-Modifyed by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to work with Norfolk area shelters.
+Modified by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to move the shelter_id to an environment variable
+so one repository can be used for several cities.
 
 ## About
 A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the
-[Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
+the shelter of your choosing to a twitter feed.
 
-It should be easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
+This is easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
 
-**Links to API and Bot**
+This Github Repository supports this Twitter account:
 
 * [Twitter bot](http://twitter.com/CutiesInNorfolk)
+
+Petfinder API Docs:
 
 * [API Docs`](https://www.petfinder.com/developers/api-docs)
 
@@ -25,7 +29,7 @@ It should be easily extendable to other shelters using [petfinder.com](petfinder
 
 ### Install dependencies (other gems, aka Ruby libraries)
 
-    bundle install
+  `bundle install`
 
 ### Get your API keys
 
@@ -61,6 +65,7 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
     access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    shelter_id='MA124'
 
 ### How to Tweet
 
@@ -68,13 +73,13 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
 
 The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 
-### How to Tweet Periodically
+### How to Tweet Periodically Using a Cron Job
 
 Install the application on a server or a computer that will be powered on continuously.
 
     cd <install_path>
-    git clone git@github.com:codeforboston/CutiesInNorfolk.git
-    cd CutiesInNorfolk
+    git clone git@github.com:codeforboston/CutiesInHamptonRoads.git
+    cd CutiesInHamptonRoads
     bundle install
     crontab -e  # opens an editor to add a line to your scheduled cron jobs
 
@@ -88,6 +93,9 @@ You can learn how to configure the crontab to your preference [here](https://hel
 #### Alternatives
 
 CutiesInNorfolk uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
+
+You can use this Github repository for several Twitter account as long as you set
+the environment variables on the Heroku instances.
 
 -----------------------
 
