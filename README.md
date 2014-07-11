@@ -1,9 +1,11 @@
-CutiesInNorfolk
+Cuties In Norfolk
 ==============
 
 Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
 
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
+
+Modifyed by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to work with Norfolk area shelters.
 
 ## About
 A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Norfolk SPCA](http://www.norfolkspca.com/) and [Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
@@ -81,7 +83,7 @@ You can learn how to configure the crontab to your preference [here](https://hel
 
 #### Alternatives
 
-CutiesInDenver uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
+CutiesInNorfolk uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
 
 -----------------------
 
