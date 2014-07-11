@@ -1,4 +1,4 @@
-[Status](https://travis-ci.org/c4hrva/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
+[![Build Status](https://travis-ci.org/c4hrva/CutiesInHamptonRoads.svg?branch=master)](https://travis-ci.org/c4hrva/CutiesInHamptonRoads)
 
 Cuties In Hampton Roads
 ==============
