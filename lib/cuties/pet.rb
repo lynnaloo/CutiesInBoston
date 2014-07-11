@@ -34,10 +34,18 @@ class Pet
   end
 
   def hashtags
-      breedHash = "#" + "#{breed_or_animal}"
-      typeHash = "#" + "#{type.downcase}"
-      cityHash = "#" + "#{city}"
-      return breedHash.delete(' ') + " " + typeHash.delete(' ') + " " + cityHash.delete(' ')
+    hashString = ""
+    hashtags = ["#{breed_or_animal}",
+        "#{type.downcase}",
+        "#{city}"
+      ]
+
+    hashtags.each do |tag|
+      tag = "#" + tag.delete(' ')
+      hashString = hashString + " " + tag
+    end
+
+    return hashString
   end
 
   def message
