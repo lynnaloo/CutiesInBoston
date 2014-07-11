@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stanzheng/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
+
 Cuties In Norfolk
 ==============
 
