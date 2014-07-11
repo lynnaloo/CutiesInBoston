@@ -33,6 +33,7 @@ You need to sign up for a twitter API. You'll need all of the following:
 * consumer_secret
 * access_token
 * access_token_secret
+* shelter_id of the shelter you want to query
 
 To get twitter keys setup an application for your twitter account: https://dev.twitter.com/docs/auth/tokens-devtwittercom
 

@@ -11,8 +11,8 @@ module AdoptAPet
 
   PARAMS = {
     format:    'json',
-    key:        ENV.fetch('petfinder_key'),
-    shelterid: 'VA242', # MSPCA in Jamaica Plain
+    key:        ENV['petfinder_key'],
+    shelterid: ENV['shelter_id'],
     output:    'full'
   }
 
