@@ -1,4 +1,4 @@
-Cuties In Norfolk
+Cuties In Hampton Roads
 ==============
 
 Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
@@ -62,6 +62,7 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
     access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    shelter_id='MA124'
 
 ### How to Tweet
 
@@ -69,13 +70,13 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
 
 The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 
-### How to Tweet Periodically
+### How to Tweet Periodically Using a Cron Job
 
 Install the application on a server or a computer that will be powered on continuously.
 
     cd <install_path>
-    git clone git@github.com:codeforboston/CutiesInNorfolk.git
-    cd CutiesInNorfolk
+    git clone git@github.com:codeforboston/CutiesInHamptonRoads.git
+    cd CutiesInHamptonRoads
     bundle install
     crontab -e  # opens an editor to add a line to your scheduled cron jobs
 
@@ -89,6 +90,9 @@ You can learn how to configure the crontab to your preference [here](https://hel
 #### Alternatives
 
 CutiesInNorfolk uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
+
+You can use this Github repository for several Twitter account as long as you set
+the environment variables on the Heroku instances.
 
 -----------------------
 
