@@ -1,0 +1,5 @@
+language: ruby
+script:
+  - "ruby -r 'minitest/autorun' spec/pet_spec.rb"
+rvm:
+  - 1.9.3
