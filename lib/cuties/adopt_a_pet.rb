@@ -50,6 +50,9 @@ module AdoptAPet
     SEXES.fetch(sex) { 'gender-unspecified '} # Fetch a sex, or list as gender-unspecified
   end
 
+  def self.get_city(pet)
+    city = pet['contact']['city']['$t']
+  end
 
   def self.fetch_pet
     uri = URI(URL)
@@ -64,12 +67,12 @@ module AdoptAPet
     Pet.new({
       breed: get_breeds(pet_json),
       pic:   get_photo(pet_json),
-
       link:  "https://www.petfinder.com/petdetail/" + pet_json['id']['$t'],
       name:  pet_json['name']['$t'].my_titleize,
       id:    pet_json['id']['$t'],
       sex:   get_sex(pet_json),
-      type:  pet_json['animal']['$t']
+      type:  pet_json['animal']['$t'],
+      city:  get_city(pet_json)
     })
   end
 end
