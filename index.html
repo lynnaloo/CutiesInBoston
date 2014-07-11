@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Cuties in Norfolk by lynnaloo</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Cuties in Norfolk</h1>
+          <h2>This is a twitter bot that posts a random adoptable pet in Norfolk from Petfinder.com.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/lynnaloo/CutiesInNorfolk/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/lynnaloo/CutiesInNorfolk/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/lynnaloo/CutiesInNorfolk" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="cuties-in-norfolk" class="anchor" href="#cuties-in-norfolk"><span class="octicon octicon-link"></span></a>Cuties In Norfolk</h1>
+
+<p>Project of <a href="https://github.com/boonrs">Becky Boone</a> and <a href="https://github.com/drewrwilson">Drew</a> during their fellowship at Code for America in 2014.</p>
+
+<p>Modified by <a href="codeforboston.com">CodeforBoston</a> to work with the Petfinder.com API</p>
+
+<p>Modify by <a href="http://codeforhamptonroads.org/">CodeforHamptonRoads</a> to work for shelters in Norfolk.</p>
+
+<h2>
+<a name="about" class="anchor" href="#about"><span class="octicon octicon-link"></span></a>About</h2>
+
+<p>A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the <a href="http://www.norfolkspca.com/">Norfolk SPCA</a> and <a href="http://www.norfolk.gov/Index.aspx?NID=260">Norfolk Animal Care Center</a> to a twitter feed.</p>
+
+<p>It should be easily extendable to other shelters using <a href="petfinder.com">petfinder.com</a> to list their animals.</p>
+
+<p><strong>Links to API and Bot</strong></p>
+
+<ul>
+<li><p><a href="http://twitter.com/CutiesInNorfolk">Twitter bot</a></p></li>
+<li><p><a href="https://www.petfinder.com/developers/api-docs">API Docs`</a></p></li>
+</ul><h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<h3>
+<a name="install-dependencies-other-gems-aka-ruby-libraries" class="anchor" href="#install-dependencies-other-gems-aka-ruby-libraries"><span class="octicon octicon-link"></span></a>Install dependencies (other gems, aka Ruby libraries)</h3>
+
+<pre><code>bundle install
+</code></pre>
+
+<h3>
+<a name="get-your-api-keys" class="anchor" href="#get-your-api-keys"><span class="octicon octicon-link"></span></a>Get your API keys</h3>
+
+<p>You need to sign up for a twitter API. You'll need all of the following:</p>
+
+<ul>
+<li>consumer_key</li>
+<li>consumer_secret</li>
+<li>access_token</li>
+<li>access_token_secret</li>
+</ul><p>To get twitter keys setup an application for your twitter account: <a href="https://dev.twitter.com/docs/auth/tokens-devtwittercom">https://dev.twitter.com/docs/auth/tokens-devtwittercom</a></p>
+
+<p>You'll also need Petfinder keys</p>
+
+<ul>
+<li>petfinder_key</li>
+<li>petfinder_secret</li>
+</ul><p>To get them, first register for a Petfinder account: <a href="https://users.petfinder.com/login">https://users.petfinder.com/login</a></p>
+
+<p>Then sign up for the API keys: <a href="https://www.petfinder.com/developers/api-key">https://www.petfinder.com/developers/api-key</a></p>
+
+<h3>
+<a name="set-up-your-environment-variables" class="anchor" href="#set-up-your-environment-variables"><span class="octicon octicon-link"></span></a>Set up your environment variables</h3>
+
+<p>Rename the sample.env to .env and edit to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.</p>
+
+<p>Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you from accidentially exposing your keys. Do not remove this line.</p>
+
+<pre><code>consumer_key=XXXXXXXXXXXXXXXXXXXXXX
+consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</code></pre>
+
+<h3>
+<a name="how-to-tweet" class="anchor" href="#how-to-tweet"><span class="octicon octicon-link"></span></a>How to Tweet</h3>
+
+<pre><code>rake tweet
+</code></pre>
+
+<p>The tweet task is in the Rakefile, which invokes the rest of <code>cuties.rb</code>.</p>
+
+<h3>
+<a name="how-to-tweet-periodically" class="anchor" href="#how-to-tweet-periodically"><span class="octicon octicon-link"></span></a>How to Tweet Periodically</h3>
+
+<p>Install the application on a server or a computer that will be powered on continuously.</p>
+
+<pre><code>cd &lt;install_path&gt;
+git clone git@github.com:codeforboston/CutiesInNorfolk.git
+cd CutiesInNorfolk
+bundle install
+crontab -e  # opens an editor to add a line to your scheduled cron jobs
+</code></pre>
+
+<p>Add the following to your crontab</p>
+
+<pre><code>00 08,16 * * * cd &lt;install_path&gt;/CutiesInNorfolk &amp;&amp; /usr/local/bin/rake tweet
+</code></pre>
+
+<p>This tweets at 8:00am and 4:00pm (0800 hours and 1600 hours) every day.
+You can learn how to configure the crontab to your preference <a href="https://help.ubuntu.com/community/CronHowto">here</a>.</p>
+
+<h4>
+<a name="alternatives" class="anchor" href="#alternatives"><span class="octicon octicon-link"></span></a>Alternatives</h4>
+
+<p>CutiesInDenver uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.</p>
+
+<hr><p><strong>Hat tips</strong></p>
+
+<ul>
+<li><p>Kudos to <a href="https://github.com/dariusk">Darius</a> for his <a href="http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/">great guide</a> on how to make a twitter bot.</p></li>
+<li><p>And kudo to <a href="https://github.com/sferik/">Erik</a> for the <a href="https://github.com/sferik/twitter">twitter gem</a>.</p></li>
+</ul>
+        </section>
+
+        <footer>
+          Cuties in Norfolk is maintained by <a href="https://github.com/lynnaloo">lynnaloo</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
