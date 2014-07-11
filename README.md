@@ -5,17 +5,20 @@ Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.co
 
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
-Modifyed by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to work with Norfolk area shelters.
+Modified by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to move the shelter_id to an environment variable
+so one repository can be used for several cities.
 
 ## About
 A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the
-[Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
+the shelter of your choosing to a twitter feed.
 
-It should be easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
+This is easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
 
-**Links to API and Bot**
+This Github Repository supports this Twitter account:
 
 * [Twitter bot](http://twitter.com/CutiesInNorfolk)
+
+Petfinder API Docs:
 
 * [API Docs`](https://www.petfinder.com/developers/api-docs)
 
@@ -23,7 +26,7 @@ It should be easily extendable to other shelters using [petfinder.com](petfinder
 
 ### Install dependencies (other gems, aka Ruby libraries)
 
-    bundle install
+  `bundle install`
 
 ### Get your API keys
 
