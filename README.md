@@ -1,5 +1,5 @@
 <<<<<<< HEAD
- Status](https://travis-ci.org/stanzheng/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
+ Status](https://travis-ci.org/c4hrva/CutiesInNorfolk.svg)](https://travis-ci.org/stanzheng/CutiesInNorfolk)
 
 Cuties In Hampton Roads
 ==============
