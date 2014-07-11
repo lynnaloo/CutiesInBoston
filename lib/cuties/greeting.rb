@@ -1,5 +1,5 @@
 module Greeting
-  
+
   def self.random
     greetings.sample
   end
@@ -21,7 +21,8 @@ module Greeting
       "Hello, I'm",
       "Hey, I'm",
       "Hi! I'm",
-      "Hey! I am"
+      "Hey! I am",
+      "Howdy! I am"
     ]
   end
 end

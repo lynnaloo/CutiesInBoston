@@ -1,5 +1,5 @@
 class Pet
-  
+
   attr_reader :id,
               :link,
               :name,
@@ -7,7 +7,8 @@ class Pet
               :breed,
               :type,
               :desc,
-              :pic
+              :pic,
+              :city
 
   def initialize(attributes)
     @id    = attributes[:id]
@@ -18,6 +19,7 @@ class Pet
     @pic   = attributes[:pic]
     @sex   = attributes[:sex]
     @type  = attributes[:type]
+    @city  = attributes[:city]
   end
 
   def breed_or_animal
@@ -31,8 +33,23 @@ class Pet
     breed
   end
 
+  def hashtags
+    hashString = ""
+    hashtags = ["#{breed_or_animal}",
+        "#{type.downcase}",
+        "#{city}"
+      ]
+
+    hashtags.each do |tag|
+      tag = "#" + tag.delete(' ')
+      hashString = hashString + " " + tag
+    end
+
+    return hashString
+  end
+
   def message
-    "#{name}, a #{sex} #{breed_or_animal}. #{link}"
+    "#{name}, a #{sex} #{breed_or_animal}. #{hashtags} #{link}"
   end
 
   def error?
