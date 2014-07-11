@@ -8,7 +8,8 @@ Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com AP
 Modifyed by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to work with Norfolk area shelters.
 
 ## About
-A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Norfolk SPCA](http://www.norfolkspca.com/) and [Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
+A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the
+[Norfolk Animal Care Center](http://www.norfolk.gov/Index.aspx?NID=260) to a twitter feed.
 
 It should be easily extendable to other shelters using [petfinder.com](petfinder.com) to list their animals.
 
