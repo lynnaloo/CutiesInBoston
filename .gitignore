@@ -1,4 +1,3 @@
-template.env
 *.gem
 *.rbc
 .DS_Store
@@ -18,5 +17,5 @@ tmp
 # YARD artifacts
 .yardoc
 _yardoc
-doc/				
+doc/
 image.png
