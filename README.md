@@ -45,7 +45,7 @@ Then sign up for the API keys: https://www.petfinder.com/developers/api-key
 
 ### Set up your environment variables
 
-Modify the .env file to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
+Rename the sample.env to .env and edit to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
 
 Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you from accidentially exposing your keys. Do not remove this line.
 
@@ -74,7 +74,7 @@ Install the application on a server or a computer that will be powered on contin
 
 Add the following to your crontab
 
-    00 08,16 * * * cd <install_path>/CutiesInBoston && /usr/local/bin/rake tweet
+    00 08,16 * * * cd <install_path>/CutiesInNorfolk && /usr/local/bin/rake tweet
 
 This tweets at 8:00am and 4:00pm (0800 hours and 1600 hours) every day.
 You can learn how to configure the crontab to your preference [here](https://help.ubuntu.com/community/CronHowto).
