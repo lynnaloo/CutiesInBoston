@@ -6,7 +6,7 @@ Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.co
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
 Modified by [CodeforHamptonRoads](http://codeforhamptonroads.org/) to move the shelter_id to an environment variable
-so one repository can be used for several cities.
+so one repository can be used for several cities. Also added #hashtags for breed, type, and city.
 
 ## About
 A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the
@@ -52,7 +52,7 @@ Then sign up for the API keys: https://www.petfinder.com/developers/api-key
 
 ### Set up your environment variables
 
-Rename the sample.env to .env and edit to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
+Edit the .env file to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
 
 Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you from accidentially exposing your keys. Do not remove this line.
 
