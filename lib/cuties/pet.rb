@@ -41,8 +41,10 @@ class Pet
       ]
 
     hashtags.each do |tag|
-      tag = "#" + tag.delete(' ')
-      hashString = hashString + " " + tag
+      unless tag.nil?
+        tag = "#" + tag.delete(' ')
+        hashString = hashString + " " + tag
+      end
     end
 
     return hashString

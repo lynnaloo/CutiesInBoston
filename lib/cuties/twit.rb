@@ -21,7 +21,6 @@ class Twit
     "#{greeting} #{pet.message}"
   end
 
-
   def client
     Twitter::REST::Client.new do |config|
       begin
@@ -37,12 +36,12 @@ class Twit
     end
   end
 
-
   def tweet
     unless pet.pic.nil?
       uri   = URI.parse(pet.pic)
-      media = uri.open
-      client.update_with_media(message, media)
+      open(uri) { |f|
+        client.update_with_media(message, f)
+      }
     else
       client.update(message)
     end

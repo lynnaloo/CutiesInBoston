@@ -2,81 +2,73 @@ require 'net/http'
 require 'json'
 require 'open-uri'
 require 'pp'
-
+require 'petfinder'
 require 'dotenv'
+
 Dotenv.load
 
+Petfinder.configure do |config|
+  config.api_key    = ENV['petfinder_key']
+  config.api_secret = ENV['petfinder_secret']
+end
+
 module AdoptAPet
-  URL = 'http://api.petfinder.com/pet.getRandom'
 
   def self.get_shelter
     shelter = ENV['shelter_id'].split(",")
     shelter.sample
   end
 
-  PARAMS = {
-    format:    'json',
-    key:        ENV['petfinder_key'],
-    shelterid:  get_shelter,
-    output:    'full'
-  }
-
-  SEXES = { m: 'male', f: 'female' }
-
   def self.random
     pet = fetch_pet while pet.nil? || pet.error?
     pet
   end
 
+  SEXES = { m: 'male', f: 'female' }
+
   private
 
-
   def self.get_breeds(pet)
-    breed_list = [pet['breeds']['breed']].flatten          # Coerces into an Array
-    breed_list = breed_list.map{ |b| b["$t"] }.join(' / ') # Joins into string
-    breed_list << ' mix' if breed_list.include?('/')
-    breed_list
+    unless pet.breeds.nil?
+      pet.breeds[0]
+    end
   end
-
 
   def self.get_photo(pet)
     # Assume that if there isn't a 3rd photo, there is a first one
     # There's some more refactoring to be done here.
-
-    unless pet['media']['photos']['photo'].nil?
-      photo = pet['media']['photos']['photo'][2] || pet['media']['photos']['photo'][0]
-      photo['$t']
+    unless pet.photos.nil?
+      pet.photos[0].medium
     end
   end
 
-
   def self.get_sex(pet)
-    sex = pet['sex']['$t'].downcase.to_sym
-    SEXES.fetch(sex) { 'gender-unspecified '} # Fetch a sex, or list as gender-unspecified
-  end
-
-  def self.get_city(pet)
-    city = pet['contact']['city']['$t']
+    sex = pet.sex.downcase.to_sym
+    SEXES[sex] || 'gender-unspecified' # Fetch a sex, or list as gender-unspecified
   end
 
   def self.fetch_pet
-    uri = URI(URL)
-    uri.query = URI.encode_www_form(PARAMS)
-    json = JSON.parse(Net::HTTP.get_response(uri).body)
+    petfinder = Petfinder::Client.new
 
-    PP.pp(json)  # Pretty-prints the response in the Terminal
+    options = { shelterid: get_shelter }
+    pet = petfinder.random_pet(options)
 
-    pet_json  = json['petfinder']['pet']
+    # Prints the Pet xml in the Terminal
+    xml = pet.instance_variable_get(:@xml)
+    puts xml
+
+    # Refactor - the petfinder gem doesn't expose pet.contact
+    city =  xml.xpath("//pet/contact/city").map(&:text)[0]
 
     Pet.new({
-      breed: get_breeds(pet_json),
-      pic:   get_photo(pet_json),
-      link:  "https://www.petfinder.com/petdetail/" + pet_json['id']['$t'],
-      name:  pet_json['name']['$t'].my_titleize,
-      id:    pet_json['id']['$t'],
-      sex:   get_sex(pet_json),
-      type:  pet_json['animal']['$t'],
-      city:  get_city(pet_json)
+      breed: get_breeds(pet),
+      pic:   get_photo(pet),
+      link:  "https://www.petfinder.com/petdetail/" + pet.id,
+      name:  pet.name.my_titleize,
+      id:    pet.id,
+      sex:   get_sex(pet),
+      type:  pet.animal,
+      city:  city
     })
   end
 end
