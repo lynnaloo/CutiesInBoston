@@ -25,9 +25,9 @@ class Twit
   def client
     Twitter::REST::Client.new do |config|
       begin
-        config.consumer_key =        ENV['consumer_key']
-        config.consumer_secret =     ENV['consumer_secret']
-        config.access_token =        ENV['access_token']
+        config.consumer_key        = ENV['consumer_key']
+        config.consumer_secret     = ENV['consumer_secret']
+        config.access_token        = ENV['access_token']
         config.access_token_secret = ENV['access_token_secret']
 
       rescue KeyError
