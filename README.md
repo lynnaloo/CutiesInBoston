@@ -49,12 +49,14 @@ To get them, first register for a Petfinder account: https://users.petfinder.com
 
 Then sign up for the API keys: https://www.petfinder.com/developers/api-key
 
-
 ### Set up your environment variables
 
-Edit the .env file to include your actual keys instead of placeholders. The variables in this file will be automatically picked up when you run the rake task.
+Copy `template.env` and rename as `.env` file to include your actual keys instead of placeholders.
+The variables in this file will be automatically picked up when you run the rake task. If you would like to
+specify multiple shelters to select random pets from, identify them as a comma-separated list.
 
-Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you from accidentially exposing your keys. Do not remove this line.
+Do not commit your modified .env file to anywhere public. The .env line in the .gitignore file prevents you
+from accidentally exposing your keys. Do not remove this line.
 
     consumer_key=XXXXXXXXXXXXXXXXXXXXXX
     consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -62,7 +64,7 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
     access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    shelter_id='MA124'
+    shelter_id=MA124
 
 ### How to Tweet
 
@@ -70,26 +72,9 @@ Do not commit your modified .env file to anywhere public. The .env line in the .
 
 The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
 
-### How to Tweet Periodically Using a Cron Job
-
-Install the application on a server or a computer that will be powered on continuously.
-
-    cd <install_path>
-    git clone git@github.com:codeforboston/CutiesInHamptonRoads.git
-    cd CutiesInHamptonRoads
-    bundle install
-    crontab -e  # opens an editor to add a line to your scheduled cron jobs
-
-Add the following to your crontab
-
-    00 08,16 * * * cd <install_path>/CutiesInNorfolk && /usr/local/bin/rake tweet
-
-This tweets at 8:00am and 4:00pm (0800 hours and 1600 hours) every day.
-You can learn how to configure the crontab to your preference [here](https://help.ubuntu.com/community/CronHowto).
-
 #### Alternatives
 
-CutiesInNorfolk uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
+CutiesInNorfolk and CutiesInPtown uses Heroku and the Heroku Scheduler plugin to tweet hourly.
 
 You can use this Github repository for several Twitter account as long as you set
 the environment variables on the Heroku instances.

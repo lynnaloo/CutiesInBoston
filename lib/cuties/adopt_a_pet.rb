@@ -9,10 +9,15 @@ Dotenv.load
 module AdoptAPet
   URL = 'http://api.petfinder.com/pet.getRandom'
 
+  def self.get_shelter
+    shelter = ENV['shelter_id'].split(",")
+    shelter.sample
+  end
+
   PARAMS = {
     format:    'json',
-    key:        ENV.fetch('petfinder_key'),
-    shelterid:  ENV.fetch('shelter_id'),
+    key:        ENV['petfinder_key'],
+    shelterid:  get_shelter,
     output:    'full'
   }
 
@@ -62,7 +67,6 @@ module AdoptAPet
     PP.pp(json)  # Pretty-prints the response in the Terminal
 
     pet_json  = json['petfinder']['pet']
-
 
     Pet.new({
       breed: get_breeds(pet_json),
