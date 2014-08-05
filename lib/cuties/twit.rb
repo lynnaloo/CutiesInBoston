@@ -37,6 +37,7 @@ class Twit
   end
 
   def tweet
+    puts message
     unless pet.pic.nil?
       uri   = URI.parse(pet.pic)
       open(uri) { |f|

@@ -14,17 +14,10 @@ end
 
 module AdoptAPet
 
-  def self.get_shelter
-    shelter = ENV['shelter_id'].split(",")
-    shelter.sample
-  end
-
   def self.random
     pet = fetch_pet while pet.nil? || pet.error?
     pet
   end
-
-  SEXES = { m: 'male', f: 'female' }
 
   private
 
@@ -35,16 +28,21 @@ module AdoptAPet
   end
 
   def self.get_photo(pet)
-    # Assume that if there isn't a 3rd photo, there is a first one
-    # There's some more refactoring to be done here.
     unless pet.photos.nil?
       pet.photos[0].medium
     end
   end
 
   def self.get_sex(pet)
+    sexes = { m: 'male', f: 'female' }
     sex = pet.sex.downcase.to_sym
-    SEXES[sex] || 'gender-unspecified' # Fetch a sex, or list as gender-unspecified
+    # Fetch a sex, or list as gender-unspecified
+    sexes[sex] || 'gender-unspecified'
+  end
+
+  def self.get_shelter
+    shelter = ENV['shelter_id'].split(",")
+    shelter.sample
   end
 
   def self.fetch_pet
@@ -57,9 +55,6 @@ module AdoptAPet
     xml = pet.instance_variable_get(:@xml)
     puts xml
 
-    # Refactor - the petfinder gem doesn't expose pet.contact
-    city =  xml.xpath("//pet/contact/city").map(&:text)[0]
-
     Pet.new({
       breed: get_breeds(pet),
       pic:   get_photo(pet),
@@ -68,7 +63,7 @@ module AdoptAPet
       id:    pet.id,
       sex:   get_sex(pet),
       type:  pet.animal,
-      city:  city
+      city:  pet.city[0]
     })
   end
 end
