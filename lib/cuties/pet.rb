@@ -33,19 +33,21 @@ class Pet
     breed
   end
 
+  # Remove unnecessary words from breed for hash
+  # Refactor with regex
+  def sanitize_breed(breed)
+    breed = breed.gsub('dog', '').gsub('cat', '').gsub('/', '').gsub('mix', '')
+    breed
+  end
+
   def hashtags
-    hashString = ""
-    hashtags = ["#{breed_or_animal}",
-        "#{type.downcase}",
-        "#{city}"
+    sanitized = sanitize_breed(breed_or_animal)
+    hashtags = [
+      "#{sanitized}",
+      "#{type.downcase}",
+      "#{city}"
       ]
-
-    hashtags.each do |tag|
-      tag = "#" + tag.delete(' ')
-      hashString = hashString + " " + tag
-    end
-
-    return hashString
+    return hashtags.map! { |h| "##{h.delete(' ')}" }.join(" ")
   end
 
   def message

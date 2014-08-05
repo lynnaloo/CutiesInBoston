@@ -39,10 +39,12 @@ class Twit
 
 
   def tweet
+    puts message
     unless pet.pic.nil?
       uri   = URI.parse(pet.pic)
-      media = uri.open
-      client.update_with_media(message, media)
+      open(uri) { |f|
+        client.update_with_media(message, f)
+      }
     else
       client.update(message)
     end
