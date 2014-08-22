@@ -21,7 +21,6 @@ class Twit
     "#{greeting} #{pet.message}"
   end
 
-
   def client
     Twitter::REST::Client.new do |config|
       begin
@@ -36,7 +35,6 @@ class Twit
 
     end
   end
-
 
   def tweet
     puts message
