@@ -1,0 +1,7 @@
+language: ruby
+script:
+  - "ruby -r 'minitest/autorun' spec/pet_spec.rb"
+rvm:
+  - 2.0.0
+gemfile:
+  - Gemfile

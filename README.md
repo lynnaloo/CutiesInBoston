@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/c4hrva/CutiesInHamptonRoads.svg?branch=master)](https://travis-ci.org/c4hrva/CutiesInHamptonRoads)
+
 Cuties In Hampton Roads
 ==============
 
